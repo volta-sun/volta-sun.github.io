@@ -83,4 +83,54 @@
         <category>Markdown</category>
       </categories>
   </entry>
+  <entry>
+    <title>java中的方法</title>
+    <url>/2021/04/22/java%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>​    介绍 java 中的方法</p>
+<span id="more"></span>
+
+<h4 id="1-定义："><a href="#1-定义：" class="headerlink" title="1.定义："></a>1.定义：</h4><p>java 中的方法类似于 C语言 中的函数，就是完成特定功能的代码块</p>
+<h4 id="2-语法结构"><a href="#2-语法结构" class="headerlink" title="2.语法结构"></a>2.语法结构</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">修饰符 返回值类型 方法名(形参)&#123;</span><br><span class="line">    方法体；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-对-java-方法的语法结构解释说明"><a href="#3-对-java-方法的语法结构解释说明" class="headerlink" title="3.对 java 方法的语法结构解释说明"></a>3.对 java 方法的语法结构解释说明</h4><h5 id="3-1-修饰符"><a href="#3-1-修饰符" class="headerlink" title="3.1 修饰符"></a>3.1 修饰符</h5><p>分为访问控制修饰符 和 非访问控制修饰符(static)</p>
+<p>访问控制修饰符：</p>
+<ul>
+<li><p>public：可以被任何包下的任何类所访问</p>
+</li>
+<li><p>private：只能被同类中元素访问</p>
+</li>
+<li><p>protected：被同包下的类访问 或者 被不同包的子类访问</p>
+</li>
+<li><p>默认：只能被同包下的元素访问</p>
+</li>
+</ul>
+<h5 id="3-2-返回值类型"><a href="#3-2-返回值类型" class="headerlink" title="3.2 返回值类型"></a>3.2 返回值类型</h5><p>就是返回结果的数据类型，如 int 、double 、char 等</p>
+<p>如果没有返回值，则返回值类型为 void</p>
+<h5 id="3-3-方法名"><a href="#3-3-方法名" class="headerlink" title="3.3 方法名"></a>3.3 方法名</h5><p>方法命名时最好要见名知意，采用驼峰命名规则，即首字母小写，后面每个单词首字母大写</p>
+<h4 id="4-方法怎么调用"><a href="#4-方法怎么调用" class="headerlink" title="4.方法怎么调用"></a>4.方法怎么调用</h4><ul>
+<li>方法的修饰符为 static ：<strong>类名.方法名(实参）</strong></li>
+<li>如果调用的方法位于同一个类中，“ 类名. ”可以省略</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doSome</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="comment">// 定义一个 doSome() 方法，返回值为 1；</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Example.doSome(); </span><br><span class="line">        <span class="comment">// 调用 doSome() 方法，因为在同一个类中，所以 Example.可省略</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-方法执行内存分析"><a href="#5-方法执行内存分析" class="headerlink" title="5.方法执行内存分析"></a>5.方法执行内存分析</h4><p>方法只定义，不调用，是不会执行的，在JVM中也不会给该方法分配运行所属的内存空间，只有在调用这方法时才会动态的给这个方法分配所属的内存空间</p>
+<h5 id="5-1-JVM-内存划分"><a href="#5-1-JVM-内存划分" class="headerlink" title="5.1 JVM 内存划分"></a>5.1 JVM 内存划分</h5><p>方法区内存、堆内存、栈内存</p>
+<h5 id="5-2-方法片段代码放在哪里？"><a href="#5-2-方法片段代码放在哪里？" class="headerlink" title="5.2 方法片段代码放在哪里？"></a>5.2 方法片段代码放在哪里？</h5><p>方法代码片段属于字节码文件的一部分，字节码文件在类加载的时候将其放到了<strong>方法区</strong>中，所以JVM中的方法区内存最先有数据，存放了方法片段代码</p>
+<h5 id="5-3-方法执行过程的内存在哪里分配？"><a href="#5-3-方法执行过程的内存在哪里分配？" class="headerlink" title="5.3 方法执行过程的内存在哪里分配？"></a>5.3 方法执行过程的内存在哪里分配？</h5><p>每一次调用方法，需要给该方法分配独立的活动场所，在<strong>栈内存</strong>中分配，方法在调用的瞬间，会在栈中发生<strong>压栈</strong>动作，方法执行结束后发生<strong>弹栈</strong>动作</p>
+<h4 id="6-方法重载"><a href="#6-方法重载" class="headerlink" title="6.方法重载"></a>6.方法重载</h4><h5 id="6-1-什么时候使用方法重载？"><a href="#6-1-什么时候使用方法重载？" class="headerlink" title="6.1 什么时候使用方法重载？"></a>6.1 什么时候使用方法重载？</h5><p>当多个方法功能相似时，尽可能让方法名相同，使用方法重载</p>
+<h5 id="6-2-构造方法重载的条件"><a href="#6-2-构造方法重载的条件" class="headerlink" title="6.2 构造方法重载的条件"></a>6.2 构造方法重载的条件</h5><p>在同一个类中，多个方法方法名相同，但参数不同（顺序不同、数量不同、类型不同）即可构成方法重载</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doSome</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doSome</span><span class="params">(<span class="keyword">char</span> a)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; </span><br><span class="line">     <span class="comment">// 这两个方法功能相似，都是返回 1，但是参数不同，使用相同方法名即可构成方法重载</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>以上内容如有错漏之处，敬请指正。</p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+  </entry>
 </search>
