@@ -1171,7 +1171,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #0161f0;
+  background: #bdb9ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2266,7 +2266,7 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .header-inner {
-  background: var(--content-bg-color);
+  background: rgba(255,255,255,0.5);
   border-radius: initial;
   box-shadow: initial;
   overflow: hidden;
@@ -2299,7 +2299,7 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .content-wrap {
-  background: var(--content-bg-color);
+  background: rgba(255,255,255,0.5);
   border-radius: initial;
   box-shadow: initial;
   box-sizing: border-box;
@@ -2447,6 +2447,7 @@ ul.breadcrumb li + li:last-child {
   margin-top: 100%;
   position: static;
   width: 240px;
+  opacity: 0.5;
 }
 @media (max-width: 991px) {
   .sidebar {
@@ -2542,4 +2543,11 @@ ul.breadcrumb li + li:last-child {
 }
 .links-of-blogroll-item {
   padding: 0;
+}
+body {
+  background: url("/images/wallhaven-6od9gx.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-size: cover;
 }
