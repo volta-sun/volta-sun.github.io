@@ -140,51 +140,6 @@
       </tags>
   </entry>
   <entry>
-    <title>类和对象</title>
-    <url>/2021/04/25/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<p>​    介绍 java 中的类和对象</p>
-<span id="more"></span>
-
-<h4 id="1-类和对象的概念"><a href="#1-类和对象的概念" class="headerlink" title="1.类和对象的概念"></a>1.类和对象的概念</h4><ul>
-<li><strong>类</strong>：类是一个模板，它描述一类对象的行为和状态。</li>
-<li><strong>对象</strong>：对象是类的一个实例，对象有状态和行为。</li>
-<li>eg：狗是一个类，而某一条狗是动物类实例化的一个对象，它的状态有：颜色、名字、品种；行为有：摇尾巴、叫、吃等。</li>
-</ul>
-<h4 id="2-类的定义"><a href="#2-类的定义" class="headerlink" title="2.类的定义"></a>2.类的定义</h4><h5 id="2-1-语法结构"><a href="#2-1-语法结构" class="headerlink" title="2.1 语法结构"></a>2.1 语法结构</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">修饰符 <span class="class"><span class="keyword">class</span> 类名</span>&#123;</span><br><span class="line">    属性; <span class="comment">// 通常是采用一个变量的形式来完成定义</span></span><br><span class="line">    方法;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 类名首字母大写，如果类名由多个单词组成，每个单词的首字母都要大写。</span></span><br></pre></td></tr></table></figure>
-
-<p>eg：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span></span>&#123;</span><br><span class="line">    String breed;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">    String colour;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sleep</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>breed 、size 、colour 、age 均为属性，而 eat() 、run() 、sleep() 均为方法。</p>
-<h5 id="2-2-类可以包含哪些变量？"><a href="#2-2-类可以包含哪些变量？" class="headerlink" title="2.2 类可以包含哪些变量？"></a>2.2 类可以包含哪些变量？</h5><ul>
-<li><strong>局部变量</strong>：在方法、构造方法或者语句块中定义的变量被称为局部变量。变量声明和初始化都是在方法中，方法结束后，变量就会自动销毁。</li>
-<li><strong>成员变量（实例变量）</strong>：成员变量是定义在类中，方法体之外的变量。这种变量在创建对象的时候实例化。成员变量可以被类中方法、构造方法和特定类的语句块访问。</li>
-<li><strong>类变量</strong>：类变量也声明在类中，方法体之外，但必须声明为 static 类型。</li>
-</ul>
-<h4 id="3-对象的创建和使用"><a href="#3-对象的创建和使用" class="headerlink" title="3.对象的创建和使用"></a>3.对象的创建和使用</h4><h5 id="3-1-什么是对象"><a href="#3-1-什么是对象" class="headerlink" title="3.1 什么是对象"></a>3.1 什么是对象</h5><p>new运算符在<strong>堆内存</strong>中开辟的内存空间称为对象，一个类可以实例化 n 个对象。</p>
-<h5 id="3-2-实例化对象的语法格式"><a href="#3-2-实例化对象的语法格式" class="headerlink" title="3.2 实例化对象的语法格式"></a>3.2 实例化对象的语法格式</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">类名 引用名 = <span class="keyword">new</span> 类名();</span><br></pre></td></tr></table></figure>
-
-<p>eg:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Dog dog = <span class="keyword">new</span> Dog(); <span class="comment">// 实例化一个狗对象</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="3-3-什么是引用"><a href="#3-3-什么是引用" class="headerlink" title="3.3 什么是引用"></a>3.3 什么是引用</h5><p>引用是储存在<strong>栈内存</strong>中的一个变量，相当于给实例化的对象取一个名称，引用中保存了该 java 对象的<strong>内存地址</strong>。</p>
-<h5 id="3-4-访问实例变量"><a href="#3-4-访问实例变量" class="headerlink" title="3.4 访问实例变量"></a>3.4 访问实例变量</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">引用.变量名 <span class="comment">// 读取数据</span></span><br><span class="line">引用.变量名 = 值 <span class="comment">// 修改数据</span></span><br></pre></td></tr></table></figure>
-
-<p>eg:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">dog.age <span class="comment">// 读取 dog 对象的 age 属性；</span></span><br><span class="line">dog.age = <span class="number">6</span>; <span class="comment">// 修改 dog 对象的 age 属性</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="4-垃圾回收器【自动垃圾回收机制，CG机制】"><a href="#4-垃圾回收器【自动垃圾回收机制，CG机制】" class="headerlink" title="4.垃圾回收器【自动垃圾回收机制，CG机制】"></a>4.垃圾回收器【自动垃圾回收机制，CG机制】</h4><p>JVM 三块内存中变化最频繁的是栈内存，GC机制主要针对堆内存，当一个对象没有引用指向它，无法被访问时，垃圾回收器将该 java 对象回收。</p>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>面向对象的封装</title>
     <url>/2021/04/26/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B0%81%E8%A3%85/</url>
     <content><![CDATA[<p>介绍面向对象的三大特性之一 —— 封装</p>
@@ -229,6 +184,51 @@
 
 <h4 id="4-3-set-方法与-get-方法的调用"><a href="#4-3-set-方法与-get-方法的调用" class="headerlink" title="4.3 set 方法与 get 方法的调用"></a>4.3 set 方法与 get 方法的调用</h4><p>引用.方法名</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Text</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        User u = <span class="keyword">new</span> User(); <span class="comment">// 实例化一个 User 对象</span></span><br><span class="line">        </span><br><span class="line">        u.setAge(<span class="number">20</span>); <span class="comment">// 更改 age 的值为 20</span></span><br><span class="line">        </span><br><span class="line">        System.out.println(u.getAge());</span><br><span class="line">        <span class="comment">// 输出 age 的值</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>类和对象</title>
+    <url>/2021/04/25/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<p>​    介绍 java 中的类和对象</p>
+<span id="more"></span>
+
+<h4 id="1-类和对象的概念"><a href="#1-类和对象的概念" class="headerlink" title="1.类和对象的概念"></a>1.类和对象的概念</h4><ul>
+<li><strong>类</strong>：类是一个模板，它描述一类对象的行为和状态。</li>
+<li><strong>对象</strong>：对象是类的一个实例，对象有状态和行为。</li>
+<li>eg：狗是一个类，而某一条狗是动物类实例化的一个对象，它的状态有：颜色、名字、品种；行为有：摇尾巴、叫、吃等。</li>
+</ul>
+<h4 id="2-类的定义"><a href="#2-类的定义" class="headerlink" title="2.类的定义"></a>2.类的定义</h4><h5 id="2-1-语法结构"><a href="#2-1-语法结构" class="headerlink" title="2.1 语法结构"></a>2.1 语法结构</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">修饰符 <span class="class"><span class="keyword">class</span> 类名</span>&#123;</span><br><span class="line">    属性; <span class="comment">// 通常是采用一个变量的形式来完成定义</span></span><br><span class="line">    方法;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 类名首字母大写，如果类名由多个单词组成，每个单词的首字母都要大写。</span></span><br></pre></td></tr></table></figure>
+
+<p>eg：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span></span>&#123;</span><br><span class="line">    String breed;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">    String colour;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sleep</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>breed 、size 、colour 、age 均为属性，而 eat() 、run() 、sleep() 均为方法。</p>
+<h5 id="2-2-类可以包含哪些变量？"><a href="#2-2-类可以包含哪些变量？" class="headerlink" title="2.2 类可以包含哪些变量？"></a>2.2 类可以包含哪些变量？</h5><ul>
+<li><strong>局部变量</strong>：在方法、构造方法或者语句块中定义的变量被称为局部变量。变量声明和初始化都是在方法中，方法结束后，变量就会自动销毁。</li>
+<li><strong>成员变量（实例变量）</strong>：成员变量是定义在类中，方法体之外的变量。这种变量在创建对象的时候实例化。成员变量可以被类中方法、构造方法和特定类的语句块访问。</li>
+<li><strong>类变量</strong>：类变量也声明在类中，方法体之外，但必须声明为 static 类型。</li>
+</ul>
+<h4 id="3-对象的创建和使用"><a href="#3-对象的创建和使用" class="headerlink" title="3.对象的创建和使用"></a>3.对象的创建和使用</h4><h5 id="3-1-什么是对象"><a href="#3-1-什么是对象" class="headerlink" title="3.1 什么是对象"></a>3.1 什么是对象</h5><p>new运算符在<strong>堆内存</strong>中开辟的内存空间称为对象，一个类可以实例化 n 个对象。</p>
+<h5 id="3-2-实例化对象的语法格式"><a href="#3-2-实例化对象的语法格式" class="headerlink" title="3.2 实例化对象的语法格式"></a>3.2 实例化对象的语法格式</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">类名 引用名 = <span class="keyword">new</span> 类名();</span><br></pre></td></tr></table></figure>
+
+<p>eg:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Dog dog = <span class="keyword">new</span> Dog(); <span class="comment">// 实例化一个狗对象</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="3-3-什么是引用"><a href="#3-3-什么是引用" class="headerlink" title="3.3 什么是引用"></a>3.3 什么是引用</h5><p>引用是储存在<strong>栈内存</strong>中的一个变量，相当于给实例化的对象取一个名称，引用中保存了该 java 对象的<strong>内存地址</strong>。</p>
+<h5 id="3-4-访问实例变量"><a href="#3-4-访问实例变量" class="headerlink" title="3.4 访问实例变量"></a>3.4 访问实例变量</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">引用.变量名 <span class="comment">// 读取数据</span></span><br><span class="line">引用.变量名 = 值 <span class="comment">// 修改数据</span></span><br></pre></td></tr></table></figure>
+
+<p>eg:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">dog.age <span class="comment">// 读取 dog 对象的 age 属性；</span></span><br><span class="line">dog.age = <span class="number">6</span>; <span class="comment">// 修改 dog 对象的 age 属性</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-垃圾回收器【自动垃圾回收机制，CG机制】"><a href="#4-垃圾回收器【自动垃圾回收机制，CG机制】" class="headerlink" title="4.垃圾回收器【自动垃圾回收机制，CG机制】"></a>4.垃圾回收器【自动垃圾回收机制，CG机制】</h4><p>JVM 三块内存中变化最频繁的是栈内存，GC机制主要针对堆内存，当一个对象没有引用指向它，无法被访问时，垃圾回收器将该 java 对象回收。</p>
+]]></content>
       <categories>
         <category>java</category>
       </categories>
